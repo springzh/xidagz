@@ -1,0 +1,80 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>详情</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                <tr>
+                    <th>姓名</th>
+                    <td>{{ entity.userName }}</td>
+                </tr>
+                <tr>
+                    <th>手机</th>
+                    <td>{{ entity.phoneNumber }}</td>
+                </tr>
+                <tr>
+                    <th>年级院系专业</th>
+                    <td>{{ entity.major }}</td>
+                </tr>
+                <tr>
+                    <th>入学年份</th>
+                    <td>{{ entity.enrollmentTime }}</td>
+                </tr>
+                <tr>
+                    <th>就读院系</th>
+                    <td>{{ entity.department }}</td>
+                </tr>
+                <tr>
+                    <th>行业</th>
+                    <td>{{ entity.profession }}</td>
+                </tr>
+                <tr>
+                    <th>公司</th>
+                    <td>{{ entity.company }}</td>
+                </tr>
+                <tr>
+                    <th>职务</th>
+                    <td>{{ entity.job }}</td>
+                </tr>
+                <tr>
+                    <th>地址</th>
+                    <td>{{ entity.address }}</td>
+                </tr>
+                <tr>
+                    <th>座机</th>
+                    <td>{{ entity.telephoneNumber }}</td>
+                </tr>
+                <tr>
+                    <th>传真</th>
+                    <td>{{ entity.faxNumber }}</td>
+                </tr>
+                <tr>
+                    <th>邮箱</th>
+                    <td>{{ entity.email }}</td>
+                </tr>
+                <tr>
+                    <th>QQ</th>
+                    <td>{{ entity.qqNumber }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ul class="record_actions">
+    <li>
+        <a href="{{ path('search') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('search_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

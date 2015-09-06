@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 style="display: inline-block; position: relative; left: 45%;">{{ title }}</h1>
+    <form class="form-inline" style="float: right; top: 30px; position: relative; right: 5px; width: 30%;" action="{{ path('search_result') }}" method="post" >
+        <div class="form-group" style="width: 70%;">
+            <input type="text" name="searchText" class="form-control" id="searchText" placeholder="姓名(一个空格)手机号码后四位" style="width: 100%;"/>
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>手机号码</th>
+                    <th>年级院系专业</th>
+                    <th>入学年份</th>
+                    <th>就读院系</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            {% if entities %}
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('search_show', { 'id': entity.id }) }}">{{ entity.userName }}</a></td>
+                        <td>{{ entity.phoneNumber }}</td>
+                        <td>{{ entity.major }}</td>
+                        <td>{{ entity.enrollmentTime }}</td>
+                        <td>{{ entity.department }}</td>
+                        <td>
+                            <ul style="list-style: none; display: inline;">
+                                <li style="float: left;">
+                                    <a href="{{ path('search_show', { 'id': entity.id }) }}">详情</a>
+                                </li>
+                                <li style="float: left; margin-left: 10px">
+                                    <a href="{{ path('search_edit', { 'id': entity.id }) }}">编辑</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            {% endif %}
+            {% if nothingHint  %}
+                <script>alert("{{ nothingHint }}");</script>
+            {% endif %}
+        </table>
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('search_new') }}">
+                新建
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('search') }}">
+                返回首页
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
+

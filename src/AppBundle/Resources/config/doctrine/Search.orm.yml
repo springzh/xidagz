@@ -1,0 +1,58 @@
+AppBundle\Entity\Search:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Entity\SearchRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        userName:
+            type: string
+            length: '50'
+            column: user_name
+        phoneNumber:
+            type: string
+            length: '11'
+            column: phone_number
+        major:
+            type: string
+            length: '100'
+        enrollmentTime:
+            type: string
+            length: '4'
+            column: enrollment_time
+        department:
+            type: string
+            length: '50'
+            column: Department
+        profession:
+            type: string
+            length: '50'
+        company:
+            type: string
+            length: '100'
+        job:
+            type: string
+            length: '50'
+        address:
+            type: string
+            length: '255'
+        telephoneNumber:
+            type: string
+            length: '50'
+            column: telephone_number
+        faxNumber:
+            type: string
+            length: '50'
+            column: fax_number
+        email:
+            type: string
+            length: '100'
+        qqNumber:
+            type: string
+            length: '20'
+            column: qq_number
+    lifecycleCallbacks: {  }

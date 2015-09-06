@@ -1,0 +1,34 @@
+search:
+    path:     /
+    defaults: { _controller: "AppBundle:Search:index" }
+
+search_result:
+    path:   /result
+    defaults: { _controller: "AppBundle:Search:search"}
+
+search_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Search:show" }
+
+search_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Search:new" }
+
+search_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Search:create" }
+    methods:  POST
+
+search_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Search:edit" }
+
+search_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Search:update" }
+    methods:  [POST, PUT]
+
+search_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Search:delete" }
+    methods:  [POST, DELETE]

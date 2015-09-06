@@ -1,0 +1,4 @@
+app_search:
+    resource: "@AppBundle/Resources/config/routing/search.yml"
+    prefix:   /search
+

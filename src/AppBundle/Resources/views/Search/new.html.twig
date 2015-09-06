@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>新建通信录</h1>
+
+    <form  class="form-horizontal" action="{{ path('search_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+
+        {{ form_row(form.userName) }}
+        {{ form_row(form.phoneNumber) }}
+        {{ form_row(form.major) }}
+        {{ form_rest(form) }}
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('search') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
