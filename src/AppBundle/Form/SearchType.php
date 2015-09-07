@@ -18,7 +18,7 @@ class SearchType extends AbstractType
         $builder
             ->add('userName','text', array('label'=>'姓名 *', 'attr'=>array('value'=>$this->name, 'placeholder'=>'请输入真实姓名','class'=>'form-control')))
             ->add('phoneNumber', 'text', array('label'=>'手机号码 *', 'attr'=>array('placeholder'=>'手机号码','class'=>'form-control')))
-            ->add('major', 'text', array('label'=>'年级院系专业 *', 'attr'=>array('placeholder'=>'如“92水产”、“96蔬菜”','class'=>'form-control')))
+            ->add('major', 'text', array('label'=>'年级专业 *', 'attr'=>array('placeholder'=>'如“92水产”','class'=>'form-control')))
             ->add('enrollmentTime', 'text', array('label'=>'入学年份', 'required'=>false,'attr'=>array('placeholder'=>'4位数字年份','class'=>'form-control')))
             ->add('department', 'text', array('label'=>'就读院系', 'required'=>false,'attr'=>array('placeholder'=>'就读院系的名称','class'=>'form-control')))
             ->add('profession', 'text', array('label'=>'行业', 'required'=>false,'attr'=>array('placeholder'=>'所在行业名称','class'=>'form-control')))

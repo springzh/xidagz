@@ -118,7 +118,7 @@ class SearchController extends Controller
         $entity = $em->getRepository('AppBundle:Search')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Search entity.');
+            throw $this->createNotFoundException('找不到对应的联系人信息。');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -140,7 +140,7 @@ class SearchController extends Controller
         $entity = $em->getRepository('AppBundle:Search')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Search entity.');
+            throw $this->createNotFoundException('找不到对应的联系人信息。');
         }
 
         $editForm = $this->createEditForm($entity, $entity->getuserName());
@@ -166,7 +166,7 @@ class SearchController extends Controller
         $searchObj->name = $name;
         $form = $this->createForm($searchObj, $entity, array(
             'action' => $this->generateUrl('search_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
+            'method' => 'POST',
         ));
 
         return $form;
@@ -182,37 +182,23 @@ class SearchController extends Controller
         $entity = $em->getRepository('AppBundle:Search')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Search entity.');
+            throw $this->createNotFoundException('找不到对应的联系人信息。');
         }
 
         //$deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity, '');
+        $editForm = $this->createEditForm($entity, 'search');
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $entity->setUserName($request->get('search[userName]'));
-            $entity->setPhoneNumber($request->get('search[phoneNumber]'));
-            $entity->setMajor($request->get('search[major]'));
-            $entity->setEnrollmentTime($request->get('search[enrollmentTime]'));
-            $entity->setDepartment($request->get('search[department]'));
-            $entity->setProfession($request->get('search[profession]'));
-            $entity->setCompany($request->get('search[company]'));
-            $entity->setJob($request->get('search[job]'));
-            $entity->setAddress($request->get('search[address]'));
-            $entity->setTelephoneNumber($request->get('search[telephoneNumber]'));
-            $entity->setFaxNumber($request->get('search[faxNumber]'));
-            $entity->setEmail($request->get('search[email]'));
-            $entity->setDepartment($request->get('search[qqNumber]'));
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('search_list', array('id' => $id)));
-            /*return $this->render('AppBundle:Search:index.html.twig', array(
+            return $this->render('AppBundle:Search:index.html.twig', array(
                 'errorHint' => '',
                 'entities' => '修改成功',
                 'name' => '',
                 'phone' => '',
-            ));*/
+            ));
         }
         return $this->render('AppBundle:Search:index.html.twig', array(
             'errorHint' => $request->get('search[userName]'),
@@ -230,6 +216,7 @@ class SearchController extends Controller
      * Deletes a Search entity.
      *
      */
+     /*
     public function deleteAction($id)
     {
         if ($id) {
@@ -237,7 +224,7 @@ class SearchController extends Controller
             $entity = $em->getRepository('AppBundle:Search')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Search entity.');
+                throw $this->createNotFoundException('找不到对应的联系人信息。');
             }
 
             $em->remove($entity);
@@ -247,7 +234,7 @@ class SearchController extends Controller
             if(!$checkResult){
                 return $this->render('AppBundle:Search:index.html.twig', array(
                     'errorHint' => '',
-                    'entities' => '删除成功',
+                    'entities' => '删除成功！',
                     'name' => '',
                     'phone' => '',
                 ));
@@ -255,11 +242,12 @@ class SearchController extends Controller
             else{
                 return $this->render('AppBundle:Search:show.html.twig', array(
                     'entity'  => $entity,
-                    'errorHint' => '删除失败',
+                    'errorHint' => '删除失败！',
                 ));
             }
         }
     }
+    */
 
     public function searchAction(Request $request){
         $em = $this->getDoctrine()->getManager();
@@ -277,6 +265,15 @@ class SearchController extends Controller
                         'errorHint' => '',
                     ));
                 }
+                else
+                {
+                return $this->render('AppBundle:Search:index.html.twig', array(
+                        'errorHint' => '联系人手机号码后4位尾号有误。你可以修改条件重新查询，或者新建联系人。',
+                        'entities' => '',
+                        'name' => $nameSearch,
+                        'phone' => $phoneSearch,
+                    ));
+                }
             }
             else{
                 return $this->render('AppBundle:Search:index.html.twig', array(
@@ -289,7 +286,7 @@ class SearchController extends Controller
         }
         else{
             return $this->render('AppBundle:Search:index.html.twig', array(
-                'errorHint' => '查询字段为空或有误',
+                'errorHint' => '查询条件有误！必须输入真实姓名和手机号码最后4位数字来查询。',
                 'entities' => '',
                 'name' => $nameSearch,
                 'phone' => $phoneSearch,

@@ -1,0 +1,33 @@
+body {
+    color: #333;
+    font-family: "微软雅黑","宋体","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+	max-width: 990px;
+}
+
+.container {
+	text-align: center;
+}
+.form-inline .form-group {
+    margin-bottom: 10px;
+	display: block;
+}
+
+.col-lg-10 .col-lg-15 {
+
+}
+
+label {
+	margin-right: 10px;
+	min-width: 100px;
+}
+
+form {
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.form-control {
+	min-width: 240px;
+} 
