@@ -21,46 +21,46 @@ class Search
 
     /**
      * @var string
-     * @Assert\NotBlank(message="标题不可为空")
-     * @ORM\Column(name="user_name", type="string", length=50)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="user_name", type="string", length=50, nullable=false)
      */
     private $userName;
 
     /**
      * @var string
-     * @Assert\NotBlank(message="标题不可为空")
-     * @ORM\Column(name="phone_number", type="string", length=11)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="phone_number", type="string", length=11, nullable=false)
      */
     private $phoneNumber;
 
     /**
      * @var string
-     * @Assert\NotBlank(message="标题不可为空")
-     * @ORM\Column(name="major", type="string", length=100)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="major", type="string", length=100, nullable=false)
      */
     private $major;
 
     /**
      * @var string
-     * @ORM\Column(name="enrollment_time", type="string", length=4,nullable=true)
+     * @ORM\Column(name="enrollment_time", type="string", length=4, nullable=true)
      */
     private $enrollmentTime;
 
     /**
      * @var string
-     * @ORM\Column(name="Department", type="string", length=50,nullable=true)
+     * @ORM\Column(name="Department", type="string", length=50, nullable=true)
      */
     private $department;
 
     /**
      * @var string
-     * @ORM\Column(name="profession", type="string", length=50,nullable=true)
+     * @ORM\Column(name="profession", type="string", length=50, nullable=true)
      */
     private $profession;
 
     /**
      * @var string
-     * @ORM\Column(name="company", type="string", length=100,nullable=true)
+     * @ORM\Column(name="company", type="string", length=100, nullable=true)
      */
     private $company;
 
@@ -72,31 +72,31 @@ class Search
 
     /**
      * @var string
-     * @ORM\Column(name="address", type="string", length=255,nullable=true)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
-     * @ORM\Column(name="telephone_number", type="string", length=50,nullable=true)
+     * @ORM\Column(name="telephone_number", type="string", length=50, nullable=true)
      */
     private $telephoneNumber;
 
     /**
      * @var string
-     * @ORM\Column(name="fax_number", type="string", length=50,nullable=true)
+     * @ORM\Column(name="fax_number", type="string", length=50, nullable=true)
      */
     private $faxNumber;
 
     /**
      * @var string
-     * @ORM\Column(name="email", type="string", length=100,nullable=true)
+     * @ORM\Column(name="email", type="string", length=100, nullable=true)
      */
     private $email;
 
     /**
      * @var string
-     * @ORM\Column(name="qq_number", type="string", length=20,nullable=true)
+     * @ORM\Column(name="qq_number", type="string", length=20, nullable=true)
      */
     private $qqNumber;
 

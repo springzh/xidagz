@@ -13,46 +13,59 @@ AppBundle\Entity\Search:
             type: string
             length: '50'
             column: user_name
+            nullable: false
         phoneNumber:
             type: string
             length: '11'
             column: phone_number
+            nullable: false
         major:
             type: string
             length: '100'
+            nullable: false
         enrollmentTime:
             type: string
             length: '4'
             column: enrollment_time
+            nullable: true
         department:
             type: string
             length: '50'
             column: Department
+            nullable: true
         profession:
             type: string
             length: '50'
+            nullable: true
         company:
             type: string
             length: '100'
+            nullable: true
         job:
             type: string
             length: '50'
+            nullable: true
         address:
             type: string
             length: '255'
+            nullable: true
         telephoneNumber:
             type: string
             length: '50'
             column: telephone_number
+            nullable: true
         faxNumber:
             type: string
             length: '50'
             column: fax_number
+            nullable: true
         email:
             type: string
             length: '100'
+            nullable: true
         qqNumber:
             type: string
             length: '20'
             column: qq_number
+            nullable: true
     lifecycleCallbacks: {  }

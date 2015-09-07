@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>校友通信录资料查询录入</h1>
+    <div class="table-responsive" style="text-align: left;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>手机号码</th>
+                    <th>年级院系专业</th>
+                    <th>入学年份</th>
+                    <th>就读院系</th>
+                    <th>行业</th>
+                    <th>公司</th>
+                    <th>职务</th>
+                    <th>地址</th>
+                    <th>座机</th>
+                    <th>传真</th>
+                    <th>邮箱</th>
+                    <th>QQ</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            {% if entities %}
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('search_show', { 'id': entity.id }) }}">{{ entity.userName }}</a></td>
+                        <td>{{ entity.phoneNumber }}</td>
+                        <td>{{ entity.major }}</td>
+                        <td>{{ entity.enrollmentTime }}</td>
+                        <td>{{ entity.department }}</td>
+                        <td>{{ entity.profession }}</td>
+                        <td>{{ entity.company }}</td>
+                        <td>{{ entity.job }}</td>
+                        <td>{{ entity.address }}</td>
+                        <td>{{ entity.telephoneNumber }}</td>
+                        <td>{{ entity.faxNumber }}</td>
+                        <td>{{ entity.email }}</td>
+                        <td>{{ entity.qqNumber }}</td>
+                        <td>
+                            <ul style="list-style: none; display: inline;">
+                                <li style="float: left;">
+                                    <a href="{{ path('search_show', { 'id': entity.id }) }}">详情</a>
+                                </li>
+                                <li style="float: left; margin-left: 10px">
+                                    <a href="{{ path('search_edit', { 'id': entity.id }) }}">修改</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}

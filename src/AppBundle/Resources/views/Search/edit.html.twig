@@ -1,16 +1,59 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Search edit</h1>
+    <h1>编辑联系人</h1>
 
-    {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('search') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <form  class="form-inline" style="float: left; top: 30px; position: relative; left: 35%; width: 30%; display: block;text-align: center;" action="{{ path('search_update', { 'id': entity.id }) }}" method="post">
+        {{ form_errors(edit_form) }}
+        {{ form_row(edit_form._token) }}
+        <div class="form-group col-lg-15" style="color: red">
+            {{ form_row(edit_form.userName) }}
+        </div>
+        <div class="form-group col-lg-15" style="color: red">
+            {{ form_row(edit_form.phoneNumber) }}
+        </div>
+        <div class="form-group col-lg-15" style="color: red">
+            {{ form_row(edit_form.major) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.enrollmentTime) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.department) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.profession) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.company) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.job) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.address) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.telephoneNumber) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.faxNumber) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.email) }}
+        </div>
+        <div class="form-group col-lg-10">
+            {{ form_row(edit_form.qqNumber) }}
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary btn-sm-5" value="保存">
+            <a href="{{ path('search') }}", class="btn btn-primary btn-sm-5">
+                返回首页
+            </a>
+            {#<a href="{{ path('search_delete', { 'id': entity.id }) }}" class="btn btn-primary btn-sm-5">
+                删除
+            </a>#}
+        </div>
+    </form>
 {% endblock %}

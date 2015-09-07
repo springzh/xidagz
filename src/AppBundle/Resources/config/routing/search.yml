@@ -26,9 +26,13 @@ search_edit:
 search_update:
     path:     /{id}/update
     defaults: { _controller: "AppBundle:Search:update" }
-    methods:  [POST, PUT]
+    methods:  [POST, PUT, GET]
 
 search_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:Search:delete" }
-    methods:  [POST, DELETE]
+    methods:  [POST, DELETE, GET]
+
+search_list:
+    path:   /list
+    defaults: { _controller: "AppBundle:Search:list"}

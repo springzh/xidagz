@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\BrowserKit\Request;
 
 /**
  * SearchRepository
@@ -12,4 +13,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class SearchRepository extends EntityRepository
 {
+    public function setAllEnity(Request $request){
+        $entity = new Search();
+        $entity->setUserName($request->get('appbundle_search_userName'));
+        $entity->setPhoneNumber($request->get('appbundle_search_phoneNumber'));
+        $entity->setMajor($request->get('appbundle_search_major'));
+        $entity->setEnrollmentTime($request->get('appbundle_search_enrollmentTime'));
+        $entity->setDepartment($request->get('appbundle_search_department'));
+        $entity->setProfession($request->get('appbundle_search_profession'));
+        $entity->setCompany($request->get('appbundle_search_company'));
+        $entity->setJob($request->get('appbundle_search_job'));
+        $entity->setAddress($request->get('address'));
+        $entity->setTelephoneNumber($request->get('telephoneNumber'));
+        $entity->setFaxNumber($request->get('faxNumber'));
+        $entity->setEmail($request->get('email'));
+        $entity->setDepartment($request->get('qqNumber'));
+    }
 }
